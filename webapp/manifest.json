@@ -1,0 +1,24 @@
+{
+    "name": "XEU",
+    "short_name": "Xeu",
+    "description": "foreign exchange rates and currency conversion",
+    "lang": "fr-FR",
+    "start_url": "/index.html",
+    "display": "fullscreen",
+    "orientation": "any",
+    "theme_color": "#2b70c7",
+    "icons": [
+        {
+            "src": "/assets/pwanime.logo.64.png",
+            "sizes": "64x64"
+        },
+        {
+            "src": "/assets/pwanime.logo.128.png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "/assets/pwanime.logo.512.png",
+            "sizes": "512x512"
+        }
+    ]
+}
