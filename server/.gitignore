@@ -11,7 +11,7 @@ yarn.lock
 package-lock.json
 
 # Dependency directories
-./node_modules
+node_modules/
 
 # Yarn Integrity file
 .yarn-integrity
