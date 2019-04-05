@@ -1,15 +1,19 @@
 // // // > RESOURCES
-const API_KEY = '1ebc87f464422af0b44036ffb35a4c24';
-const API_BASE = 'http://data.fixer.io/api/latest?access_key=';
-const STORAGE_KEY = "xeu.data"
-const DEFAULT_VALUE = 'EUR'
-const API_FIXER = `${API_BASE}${API_KEY}`;
+// const API_KEY = '1ebc87f464422af0b44036ffb35a4c24';
+// const API_BASE = 'http://data.fixer.io/api/latest?access_key=';
+// const STORAGE_KEY = "xeu.data"
+// const DEFAULT_VALUE = 'EUR'
+// const API_FIXER = `${API_BASE}${API_KEY}`;
+
+const API_URL = `http://localhost:4000/api/xeu`
+
 
 let currentData = [];
 
 async function initData() {
-    const response = await axios.get(`${API_FIXER}&base=${DEFAULT_VALUE}&symbols=USD,TND,GBP,JPY,BOB`)
+    // const response = await axios.get(`${API_FIXER}&base=${DEFAULT_VALUE}&symbols=USD,TND,GBP,JPY,BOB`)
 
+    const response = await axios.get(API_URL)
     
     console.log('response >>>>', response)
 
