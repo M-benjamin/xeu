@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Currency app!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="PWANIME">
+    <meta name="apple-mobile-web-app-title" content="PWANIME">
+    <meta name="theme-color" content="#2b70c7">
+    <meta name="msapplication-navbutton-color" content="#2b70c7">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="/index.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" sizes="64x64" href="/assets/pwanime.logo.64.png">
+    <link rel="apple-touch-icon" sizes="64x64" href="/assets/pwanime.logo.64.png">
+    <link rel="icon" sizes="128x128" href="/assets/pwanime.logo.128.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="/assets/pwanime.logo.128.png">
+    <link rel="icon" sizes="512x512" href="/assets/pwanime.logo.512.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/assets/pwanime.logo.512.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="import" href="https://rawgit.com/sitepoint-editors/multiselect-web-component/master/src/multiselect.html">
+    <!-- Include Twitter Bootstrap and jQuery: -->
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script> -->
+    
+    <!-- Include the plugin's CSS and JS: -->
+    <!-- <script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>  -->
+    <script src="./main.js"></script>
+</head>
+
+<body onload="initData()">
+
+    <header class="header">
+        <h1>Currency Converter</h1>
+        <!-- <h2>Using the Fixer.io API for up-to-date currency conversion rates</h2> -->
+    </header>
+
+
+    <form class="conversionForm" id="convertionSubmit">
+
+        <section class="conversionForm__amount">
+            <label>Amount:</label>
+            <input type="number" id="currencyValue" min="0">
+        </section>
+
+        <section class="conversionForm__currencies">
+
+            <div class="conversionForm__from">
+                <label>From:</label>
+                <select id='convertFrom' class="convertFrom select">
+                </select>
+            </div>
+
+
+            <div class="conversionForm__to">
+                <label>To:</label>
+                <select id='convertTo'class="convertTo select">
+                    
+                </select>      
+            </div>
+
+        </section>
+
+
+        <input type="submit" value="convert" class="currencySubmit">
+    </form>
+
+    <p id="output"></p>
+    
+
+</body>
+
+</html>

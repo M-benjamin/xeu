@@ -2,47 +2,49 @@ import { JWT_ENCRYPTION } from '@env'
 import { Router } from 'express'
 import jwt from 'jsonwebtoken'
 import passport from 'passport'
+import fs from 'fs';
 
 // import { addUserWorkspace } from 'services/storage'
 import { success, error } from 'helpers/response'
 import { BAD_REQUEST } from 'constants/api'
-
-
 
 const api = Router()
 
 /** About Sign-up
  */
 api.post('/register', async (req, res) => {
+  console.log('req.body', req.body)
   const {
-    nickname, email, password, password_confirmation,
+    email, username, password
   } = req.body
 
+  let user = {
+    email, username, password
+  }
+
+
+  let registered = {
+    users: []
+  };
+
+  registered.users.push(user);
+
+  let json = JSON.stringify(registered);
 
   try {
-    const user = new User({
-      nickname,
-      email,
-      password,
-      password_confirmation,
-    })
+    const payload = { uuid: 'zjbzjbe', nickname: username, email }
+    const token = jwt.sign(payload, JWT_ENCRYPTION)
 
-    await user.save()
+    console.log('DDDDDDDDDDDD', json);
+    console.log('DDDDDDDDDDDD',  token);
+    console.log('DDDDDDDDDDDD',  user);
 
-    addUserWorkspace(user.uuid).then(() => {
-      const payload = { uuid: user.uuid, nickname, email }
-      const token = jwt.sign(payload, JWT_ENCRYPTION)
+    fs.writeFileSync('users.json', json, 'utf8');
 
-      const message = `
-        Hey ${user.nickname}!
+    res.status(201).json(success({ user }, { token }))
 
-        Welcome to myS3 services 😎
-      `
-
-      Mail.send(user.email, 'Welcome', message, `<span>${message}</span>`)
-      res.status(201).json(success({ user }, { token }))
-    })
   } catch (err) {
+    console.log('err >>', err);
     res.status(400).json(error(BAD_REQUEST, err.message))
   }
 })
