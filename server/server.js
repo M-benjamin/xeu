@@ -5,7 +5,6 @@ import passport from 'passport'
 import cors from 'cors'
 
 import os from 'os'
-import path from 'path'
 
 import mArg from './utils/mArg'
 import mLog from './utils/mLog'
