@@ -29,47 +29,74 @@
     <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="import" href="https://rawgit.com/sitepoint-editors/multiselect-web-component/master/src/multiselect.html">
+    <!-- Include Twitter Bootstrap and jQuery: -->
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script> -->
+    
+    <!-- Include the plugin's CSS and JS: -->
+    <!-- <script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>  -->
     <script src="./main.js"></script>
 </head>
 
-<body>
+<body onload="initData()">
 
     <header class="header">
         <h1>Currency Converter</h1>
-        <h2>Using the Fixer.io API for up-to-date currency conversion rates</h2>
+        <!-- <h2>Using the Fixer.io API for up-to-date currency conversion rates</h2> -->
     </header>
 
 
-    <form class="conversionForm">
+    <form class="conversionForm" id="convertionSubmit">
 
         <section class="conversionForm__amount">
             <label>Amount:</label>
-            <input type="number" class="currencyValue">
+            <input type="number" id="currencyValue" min="0">
         </section>
 
         <section class="conversionForm__currencies">
 
             <div class="conversionForm__from">
                 <label>From:</label>
-                <select class="convertFrom">
+                <select id='convertFrom' class="convertFrom select">
                 </select>
             </div>
 
+
             <div class="conversionForm__to">
                 <label>To:</label>
-                <select class="convertTo">
+                <select id='convertTo'class="convertTo select">
                     
-                </select>
+                </select>      
             </div>
+
         </section>
 
 
         <input type="submit" value="convert" class="currencySubmit">
     </form>
 
-    <p class="output"></p>
-
-    <h3>Rates are updated daily at 3pm BST</h3>
+    <p id="output"></p>
+    <div class="convertor-card">
+            <div class="base">
+                <span class="name">US Dollar</span>
+                <div class="value-section">
+                    <span class="value">271</span>
+                    <span class="symbol">$</span>
+                </div>
+                <span class="abbr">USD</span>
+            </div>
+            <div class="converted">
+                <span class="name">Russian Ruble</span>
+                <div class="value-section">
+                    <span class="value">15.58</span>
+                    <span class="symbol">P</span>
+                </div>
+                <span class="abbr">RUB</span>
+            </div>
+    </div>
 
 </body>
 

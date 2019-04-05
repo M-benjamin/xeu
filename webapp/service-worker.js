@@ -1,4 +1,4 @@
-const CACHE_NAME = "pwanime.cache.v1";
+const CACHE_NAME = "xeu.cache.v1";
 const urlsToCache = ["/index.html", "/main.js"];
 
 this.addEventListener("install", async () => {
